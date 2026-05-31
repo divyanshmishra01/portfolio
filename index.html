@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divyansh Mishra — Full Stack Developer</title>
+  <meta name="description" content="Full Stack Web Developer specialising in Next.js, React, TypeScript & Supabase." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+
+<!-- MOBILE NAV DRAWER (slides in from right) -->
+<div class="mobile-nav-drawer" id="mobileDrawer" aria-label="Navigation menu" role="dialog">
+  <div class="drawer-topbar">
+    <a class="drawer-logo" href="#" tabindex="-1">
+      <span class="logo-d">d</span><span class="logo-rest">ivyansh</span><span class="logo-dot">.</span>
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <ul class="drawer-links" id="drawerLinks">
+    <li class="drawer-link-item">
+      <a href="#about">
+        <span class="drawer-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </span>
+        <span class="drawer-link-text">About</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li class="drawer-link-item">
+      <a href="#skills">
+        <span class="drawer-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </span>
+        <span class="drawer-link-text">Skills</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li class="drawer-link-item">
+      <a href="#projects">
+        <span class="drawer-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </span>
+        <span class="drawer-link-text">Projects</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li class="drawer-link-item">
+      <a href="#education">
+        <span class="drawer-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </span>
+        <span class="drawer-link-text">Education</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li class="drawer-link-item">
+      <a href="#contact">
+        <span class="drawer-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        <span class="drawer-link-text">Contact</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+  </ul>
+
+  <div class="drawer-cta">
+    <a class="drawer-hire-btn" href="#contact" id="drawerHireBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Hire Me
+    </a>
+    <div class="drawer-socials">
+       <a class="drawer-soc" href="https://github.com/divyanshmishra01" target="_blank" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          <a class="drawer-soc" href="https://linkedin.com/in/divyansh-mishra-3582a9372" target="_blank" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a class="drawer-soc" href="mailto:divyanshmishra283@gmail.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <span class="nav-logo-wordmark">
+          <span class="logo-d">d</span><span class="logo-rest">ivyansh</span><span class="logo-dot">.</span>
+        </span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a class="btn-hire" href="#contact">
+        Hire Me
+        <span class="hire-arrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="dot-bg">
+  <div class="hero-deco-circle hero-deco-1"></div>
+  <div class="hero-deco-circle hero-deco-2"></div>
+  <div class="hero-deco-circle hero-deco-3"></div>
+  <div class="hero-deco-sq"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow"><span class="pulse-dot"></span>Open to Opportunities</div>
+        <h1 class="hero-title">
+          <span class="hero-greeting">Hi, I'm</span>
+          <span class="hero-name-line"><span class="hero-highlight">Divyansh Mishra</span></span>
+        </h1>
+        <p class="hero-desc">Full Stack Web Developer crafting <strong>production-ready</strong> apps with Next.js, React, TypeScript &amp; Supabase — from backend to pixel-perfect UI.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#projects">View My Work<div class="btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></a>
+          <a class="btn btn-ghost" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="hero-card">
+          <div class="hero-card-bar">
+            <div class="hc-dot" style="background:rgba(255,255,255,0.8)"></div>
+            <div class="hc-dot" style="background:rgba(255,255,255,0.5)"></div>
+            <div class="hc-dot" style="background:rgba(255,255,255,0.25)"></div>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-avatar">
+              <img src="img.png" alt="Divyansh Mishra" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <span class="hero-avatar-fallback" style="display:none;">DM</span>
+            </div>
+            <div class="hero-card-name">Divyansh Mishra</div>
+            <div class="hero-card-role">Full Stack Developer · BCA Student</div>
+            <div class="hero-pills">
+              <span class="hp hp-v">Next.js</span><span class="hp hp-p">React</span><span class="hp hp-y">TypeScript</span><span class="hp hp-g">Supabase</span>
+            </div>
+            <div class="hero-stats-row">
+              <div class="hero-stat"><div class="hero-stat-n">2+</div><div class="hero-stat-l">Projects</div></div>
+              <div class="hero-stat"><div class="hero-stat-n">8.3</div><div class="hero-stat-l">CGPA</div></div>
+              <div class="hero-stat"><div class="hero-stat-n">2025</div><div class="hero-stat-l">Active Since</div></div>
+              <div class="hero-stat"><div class="hero-stat-n">2027</div><div class="hero-stat-l">Graduating</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-tile v reveal"><div class="stat-n">2+</div><div class="stat-l">Live Projects</div></div>
+      <div class="stat-tile y reveal d1"><div class="stat-n">8.3</div><div class="stat-l">CGPA / 10</div></div>
+      <div class="stat-tile p reveal d2"><div class="stat-n">6+</div><div class="stat-l">Technologies</div></div>
+      <div class="stat-tile g reveal d3"><div class="stat-n">2027</div><div class="stat-l">Graduating</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="badge badge-pink">About Me</div>
+        <h2 style="margin-bottom:1.25rem;">Building the web,<br><span style="color:var(--accent)">one commit</span> at a time.</h2>
+        <p style="margin-bottom:1rem;">I'm a passionate BCA student at Khwaja Moinuddin Chishti Language University, building real-world web applications while keeping up with the ever-evolving landscape of modern tech.</p>
+        <p style="margin-bottom:2rem;">My sweet spot is full-stack development — clean, performant backends with Supabase and SQL, paired with crisp, responsive frontends built in React and Next.js.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://github.com/divyanshmishra01" target="_blank">GitHub<div class="btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></div></a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/divyansh-mishra-3582a9372" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <div class="quote-card">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">Passionate about building production-ready platforms with a strong focus on performance, responsive design, and user experience. I don't just write code — I build products people love to use.</p>
+          <div class="quote-author">
+            <div class="quote-avatar">DM</div>
+            <div><div class="qa-name">Divyansh Mishra</div><div class="qa-role">Full Stack Developer</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge badge-violet" style="margin:0 auto 1.25rem;">My Toolkit</div>
+      <h2>Skills &amp; Technologies</h2>
+      <p>The tools and languages I use to bring ideas to life.</p>
+    </div>
+    <div class="skill-cats">
+      <div class="skill-cat reveal" data-color="violet">
+        <div class="skill-cat-ico" style="background:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="skill-cat-title">Languages</div>
+        <div class="skill-pills"><span class="skill-pill">JavaScript</span><span class="skill-pill">TypeScript</span><span class="skill-pill">Java</span><span class="skill-pill">C</span><span class="skill-pill">SQL</span></div>
+      </div>
+      <div class="skill-cat reveal d1" data-color="pink">
+        <div class="skill-cat-ico" style="background:var(--secondary);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+        <div class="skill-cat-title">Frontend</div>
+        <div class="skill-pills"><span class="skill-pill">HTML</span><span class="skill-pill">CSS</span><span class="skill-pill">React.js</span><span class="skill-pill">Next.js</span></div>
+      </div>
+      <div class="skill-cat reveal d2" data-color="green">
+        <div class="skill-cat-ico" style="background:var(--quaternary);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <div class="skill-cat-title">Backend &amp; Database</div>
+        <div class="skill-pills"><span class="skill-pill">Supabase</span><span class="skill-pill">SQL</span><span class="skill-pill">REST APIs</span></div>
+      </div>
+    </div>
+    <div class="concepts-card reveal d1">
+      <div class="concepts-label">Core Concepts &amp; Tools</div>
+      <div class="skill-pills"><span class="skill-pill">Responsive Web Design</span><span class="skill-pill">Component-Based Architecture</span><span class="skill-pill">Authentication Systems</span><span class="skill-pill">CRUD Operations</span><span class="skill-pill">Git &amp; GitHub</span><span class="skill-pill">VS Code</span><span class="skill-pill">API Integration</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge badge-yellow" style="margin:0 auto 1.25rem;">My Work</div>
+      <h2>Featured Projects</h2>
+      <p>Production-ready applications I've built and deployed.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card proj-card-1 reveal">
+        <div class="proj-header" style="background:var(--accent);">
+          <div class="proj-header-circle phc1"></div><div class="proj-header-circle phc2"></div>
+          <div class="proj-header-content">
+            <div class="proj-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+            <div class="proj-ico-label">Convix Hub</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="tech-row"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">SQL</span></div>
+          <div class="proj-title">Convix Hub</div>
+          <p class="proj-desc">A full-stack web platform offering multiple online tools and utilities through a modern, responsive interface.</p>
+          <ul class="proj-bullets">
+            <li><div class="proj-bullet-dot"></div>Built a complete blog management system using Supabase — CRUD, storage &amp; retrieval</li>
+            <li><div class="proj-bullet-dot"></div>Implemented auth workflows, API-based data handling &amp; database integration</li>
+            <li><div class="proj-bullet-dot"></div>Responsive pages optimised for desktop &amp; mobile with strong performance</li>
+            <li><div class="proj-bullet-dot"></div>Scalable architecture ready for future feature expansion</li>
+          </ul>
+          <div class="proj-footer"><a class="btn btn-primary btn-sm" href="https://www.convixhub.com/" target="_blank">Live Demo<div class="btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div></a></div>
+        </div>
+      </div>
+      <div class="project-card proj-card-2 reveal d1">
+        <div class="proj-header" style="background:var(--quaternary);">
+          <div class="proj-header-circle phc1"></div><div class="proj-header-circle phc2"></div>
+          <div class="proj-header-content">
+            <div class="proj-ico" style="background:rgba(0,0,0,0.12);border-color:rgba(0,0,0,0.2);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--fg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div class="proj-ico-label proj-dark-label">Zivo Global</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="tech-row"><span class="tech-tag">React.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span></div>
+          <div class="proj-title">Zivo Global</div>
+          <p class="proj-desc">A professional service website showcasing web development, branding, design, and digital services.</p>
+          <ul class="proj-bullets">
+            <li><div class="proj-bullet-dot"></div>Designed professional client-facing service pages &amp; navigation systems</li>
+            <li><div class="proj-bullet-dot"></div>Modern layouts focused on UX and accessibility across all devices</li>
+            <li><div class="proj-bullet-dot"></div>Reusable React components for clean, maintainable architecture</li>
+            <li><div class="proj-bullet-dot"></div>Optimised for smooth performance and fast interaction</li>
+          </ul>
+          <div class="proj-footer"><a class="btn btn-green btn-sm" href="https://zivoglobal.com/" target="_blank">Live Demo<div class="btn-icon" style="background:rgba(0,0,0,0.12);"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="edu-deco-circle" style="width:400px;height:400px;top:-120px;right:-120px;"></div>
+  <div class="edu-deco-circle" style="width:200px;height:200px;bottom:-60px;left:-60px;"></div>
+  <div class="container">
+    <div class="edu-grid">
+      <div class="edu-text reveal">
+        <div class="badge badge-green">Education</div>
+        <h2>Currently <span style="color:var(--tertiary);">Learning</span> &amp; Growing</h2>
+        <p>Pursuing my BCA while simultaneously building real-world applications and honing skills in modern web technologies.</p>
+        <ul class="edu-bullets">
+          <li><div class="edu-bullet-icon" style="background:var(--quaternary);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Consistent 8.3+ CGPA across all semesters</li>
+          <li><div class="edu-bullet-icon" style="background:var(--tertiary);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--fg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Expected graduation in 2027</li>
+          <li><div class="edu-bullet-icon" style="background:var(--accent);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Applying academic concepts to production projects</li>
+        </ul>
+      </div>
+      <div class="reveal d1">
+        <div class="edu-card">
+          <div class="edu-card-badge">🎓 Currently Enrolled</div>
+          <div class="edu-uni">Khwaja Moinuddin Chishti Language University</div>
+          <div class="edu-degree">Bachelor of Computer Applications</div>
+          <div class="edu-year">2024 — Expected Graduation: 2027</div>
+          <div class="edu-stats">
+            <div class="edu-stat"><div class="edu-stat-n">8.3</div><div class="edu-stat-l">CGPA / 10</div></div>
+            <div class="edu-stat"><div class="edu-stat-n">3 Yrs</div><div class="edu-stat-l">Duration</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="dot-bg">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="badge badge-yellow" style="margin:0 auto 1.25rem;">Let's Talk</div>
+      <h2>Get In <span style="color:var(--accent);">Touch</span></h2>
+      <p>Have a project in mind or want to say hi? Fill the form and I'll get back to you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Contact Info</h3>
+        <p>Reach out through any of these channels.</p>
+        <div class="c-item">
+          <div class="c-ico v"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="c-label">Email</div><a class="c-val" href="mailto:divyanshmishra283@gmail.com">divyanshmishra283@gmail.com</a></div>
+        </div>
+      
+        <div class="c-item">
+          <div class="c-ico y"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--fg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></div>
+          <div><div class="c-label">GitHub</div><a class="c-val" href="https://github.com/divyanshmishra01" target="_blank">github.com/divyanshmishra01</a></div>
+        </div>
+        <div class="c-item">
+          <div class="c-ico g"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><div class="c-label">LinkedIn</div><a class="c-val" href="https://linkedin.com/in/divyansh-mishra-3582a9372" target="_blank">Divyansh Mishra</a></div>
+        </div>
+        <div class="avail-badge">
+          <div class="avail-dot"></div>
+          <div><div class="avail-title">Available for work</div><div class="avail-sub">Open to internships &amp; freelance projects</div></div>
+        </div>
+      </div>
+
+      <!-- Contact Form — updated for new Google Form (Name, Email, Subject text input, Message) -->
+      <div class="reveal d1">
+        <div class="form-card">
+          <div class="form-card-head-bar">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Send Me a Message</span>
+          </div>
+
+          <div id="formState">
+            <div class="form-body">
+              <div class="err-toast" id="errToast">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span id="errToastMsg">Something went wrong. Please try again or email me directly.</span>
+              </div>
+
+              <!-- Name + Email -->
+              <div class="frow">
+                <div class="fgroup" id="fg-name">
+                  <label class="flabel" for="f-name">Name <span class="req">*</span></label>
+                  <input class="finput" id="f-name" type="text" placeholder="Your full name" maxlength="100" autocomplete="name" />
+                  <div class="ferr">Please enter your name.</div>
+                </div>
+                <div class="fgroup" id="fg-email">
+                  <label class="flabel" for="f-email">Email <span class="req">*</span></label>
+                  <input class="finput" id="f-email" type="email" placeholder="you@example.com" maxlength="150" autocomplete="email" />
+                  <div class="ferr">Please enter a valid email address.</div>
+                </div>
+              </div>
+
+              <!-- Subject — plain text input (matches Google Form "short paragraph" field) -->
+              <div class="frow full">
+                <div class="fgroup" id="fg-subject">
+                  <label class="flabel" for="f-subject">Subject <span class="req">*</span></label>
+                  <input class="finput" id="f-subject" type="text" placeholder="e.g. Freelance inquiry, Internship opportunity, Bug report…" maxlength="200" />
+                  <div class="ferr">Please enter a subject.</div>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="frow full">
+                <div class="fgroup" id="fg-message">
+                  <label class="flabel" for="f-message">Message <span class="req">*</span></label>
+                  <textarea class="ftextarea" id="f-message" placeholder="Tell me more — the more detail, the better I can help." maxlength="2000"></textarea>
+                  <div class="char-count"><span id="charCount">0</span> / 2000</div>
+                  <div class="ferr">Please enter a message (min. 20 characters).</div>
+                </div>
+              </div>
+
+              <div class="privacy-note">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p>Your information is <strong>100% private</strong> — it goes directly to me and is never shared with third parties.</p>
+              </div>
+
+              <button class="submit-btn" id="submitBtn">
+                <span class="btn-text">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Send Message
+                </span>
+                <div class="btn-spinner"></div>
+              </button>
+            </div>
+          </div>
+
+          <div id="successState">
+            <div class="success-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--fg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="success-title">Message Sent! </div>
+            <p class="success-sub">Thanks for reaching out — I'll get back to you as soon as possible.</p>
+            <button class="send-another-btn" id="sendAnotherBtn">Send Another Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="footer-logo" href="#"><span class="logo-d">d</span><span class="logo-rest">ivyansh</span><span class="logo-dot">.</span></a>
+        <p class="footer-desc">Full Stack Web Developer · BCA Student · Building production-ready apps with Next.js, React &amp; Supabase.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <div class="footer-socials">
+          <a class="fsoc" href="https://github.com/divyanshmishra01" target="_blank" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          <a class="fsoc" href="https://linkedin.com/in/divyansh-mishra-3582a9372" target="_blank" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a class="fsoc" href="mailto:divyanshmishra283@gmail.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Divyansh Mishra. Built with ❤️ and lots of ☕</div>
+  </div>
+</footer>
+<script src = "script.js"></script>
+
+</body>
+</html>
